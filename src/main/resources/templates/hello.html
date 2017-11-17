@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html   xmlns:th="http://www.thymeleaf.org"
+        > <!--xmlns="http://www.w3.org/1999/xhtml"-->
+<head>
+    <meta charset="utf-8" http-equiv="content-type" content="text/html"/>
+    <title>Title</title>
+   <!--<script th:src="@{/image/message_zh_CN.properties}" type="text/properties"></script>-->
+
+   <!--<script src="classpahello_zh_CN.propertiesties" ></script>-->
+
+    <style>
+        p.pt:before{
+            content: "h";
+        }
+        p.pt:after{
+            content: "d";
+        }
+        #start-six{
+            width: 0;
+            height: 0;
+            border-left:50px solid transparent;
+            border-right:50px solid transparent;
+            border-bottom: 100px solid brown;
+            position: relative;
+        }
+        #start-six:after{
+            width: 0;
+            height: 0;
+            border-left:50px solid transparent;
+            border-right:50px solid transparent;
+            border-top: 100px solid brown;
+            position: absolute;
+            content: "  ";
+            top: 30px;
+            left: -50px;
+        }
+        @media print {
+            a.at[href]:after{
+                content:  "(" attr(href) ")";
+            }
+        }
+    </style>
+
+</head>
+<body >
+
+<a class="at" href="http://www.baidu.com">百度cc</a>
+
+<div id="start-six"></div>
+
+<p class="pt" >ello woel</p>
+
+<h1 th:inline="text">hello 2223</h1>
+
+<p >hhhh22 <span th:text="'你好ffffg b xxvxv '+${hello}">kkk</span></p>
+
+<span th:text="${#locale.country}">US</span>
+
+<h1 th:text="${#calendars.format(time,'yyyy年-MM-dd')}"></h1>
+
+<tr th:each="listq,listqStat:${list}">
+    <td th:text="${listq}"></td>
+    <h1 th:text="${listqStat.index}">rrrr</h1>
+    <h3 th:text="${listqStat.even}">vvv</h3>
+    <h4 th:text="${listqStat.current}"></h4>
+</tr>
+
+<h1 th:text="${map.key}">5555</h1>
+
+<h2 th:text="${#dates.format(#dates.createNow(),'yyyy-MM-dd HH-mm-ss E')}"></h2>
+
+<h1 th:utext="#{hello.country}">hnio</h1>
+<h1 th:text="#{city}">hnio</h1>
+
+<h1 th:text="${#calendars.millisecond(time)}"></h1>
+
+<h1 th:text="${#maps.size(map)}"></h1>
+
+<h1 th:text="#{hh}">fff</h1>
+
+<h1 th:text="${user.name}">zhangsan</h1>
+<image th:src="@{/image/3.jpg}" width="30px" height="30px" />
+
+
+
+</body>
+</html>
